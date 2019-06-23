@@ -39,6 +39,18 @@ var tren1 = new Array();
 var tren2 = new Array();
 var tren3 = new Array();
 var tren4 = new Array();
+var fecha1 = new Array();
+var fecha2 = new Array();
+var fecha3 = new Array();
+var fecha4 = new Array();
+var grande1 = new Array();
+var grande2 = new Array();
+var grande3 = new Array();
+var grande4 = new Array();
+var pequeño1 = new Array();
+var pequeño2 = new Array();
+var pequeño3 = new Array();
+var pequeño4 = new Array();
 var suma;
 var Uno = document.getElementById("Hola");
 var dbRef = firebase.database().ref("boleto");
@@ -55,20 +67,36 @@ dbRef.on("value", snap => {
         if (data[key].transporteweb == "TR GRANDE") {
             tren1.push(data[key].transporteweb);
             tota1.push(data[key].total);
+            fecha1.push(data[key].datel);
+            grande1.push(data[key].grande);
+            pequeño1.push(data[key].pequeño);
+            var a = parseInt(tota1)
+            suma = suma + a;
+
+            document.getElementById("grande").innerHTML = suma;
 
 
         }
         if (data[key].transporteweb == "TR CHICO") {
             tren2.push(data[key].transporteweb);
             tota2.push(data[key].total);
+            fecha2.push(data[key].datel);
+            grande2.push(data[key].grande);
+            pequeño2.push(data[key].pequeño);
         }
         if (data[key].transporteweb == "TR NEGRO") {
             tren3.push(data[key].transporteweb);
             tota3.push(data[key].total);
+            fecha3.push(data[key].datel);
+            grande3.push(data[key].grande);
+            pequeño3.push(data[key].pequeño);
         }
         if (data[key].transporteweb == "CAMIONETA") {
             tren4.push(data[key].transporteweb);
             tota4.push(data[key].total);
+            fecha4.push(data[key].datel);
+            grande4.push(data[key].grande);
+            pequeño4.push(data[key].pequeño);
         }
 
 
@@ -85,6 +113,3 @@ dbRef.on("value", snap => {
     }
 
 });
-
-
-console.log(tren1);
