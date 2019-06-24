@@ -73,12 +73,24 @@ dbRef.on("value", snap => {
         // totall += parseInt(data[key].total)
 
         if (data[key].transporteweb == "TR GRANDE") {
-            tren1.push(data[key].transporteweb);
-            tota1.push(parseInt(data[key].total));
-            fecha1.push(data[key].datel);
-            grande1.push(data[key].grande);
-            pequeño1.push(data[key].pequeño);
 
+
+
+            if (fechaacutal.diff(data[key].datel, 'days') <= 15) {
+                tren1.push(data[key].transporteweb);
+                tota1.push(parseInt(data[key].total));
+                fecha1.push(data[key].datel);
+                grande1.push(data[key].grande);
+                pequeño1.push(data[key].pequeño);
+            }
+
+            if (fechaacutal.diff(data[key].datel, 'days') <= 7 || fechaacutal.diff(data[key].datel, 'days') == "NaN") {
+                tren1.push(data[key].transporteweb);
+                tota1.push(parseInt(data[key].total));
+                fecha1.push(data[key].datel);
+                grande1.push(data[key].grande);
+                pequeño1.push(data[key].pequeño);
+            }
 
 
 
@@ -98,6 +110,7 @@ dbRef.on("value", snap => {
             fecha3.push(data[key].datel);
             grande3.push(data[key].grande);
             pequeño3.push(data[key].pequeño);
+
         }
         if (data[key].transporteweb == "CAMIONETA") {
             tren4.push(data[key].transporteweb);
@@ -149,10 +162,7 @@ dbRef.on("value", snap => {
 
     //console.log(moment(fecha).format('MM/DD/YYYY HH:mm:ss'));
 
-    fecha1.forEach(function(element) {
-        dia1.push(fechaacutal.diff(element, 'days'));
 
-    });
 
 
 });
