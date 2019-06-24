@@ -557,12 +557,12 @@ dbRef.on("value", snap => {
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [
-            { year: '2008', value: sumatpq1, value2: sumatgq1 },
-            { year: '2009', value: sumatph1, value2: sumatgh1 },
-            { year: '2010', value: sumatp1, value2: sumatg1 }
+            { x: "1", value: sumatpq1, value2: sumatgq1 },
+            { x: "2", value: sumatph1, value2: sumatgh1 },
+            { x: "3", value: sumatp1, value2: sumatg1 }
         ],
         // The name of the data record attribute that contains x-values.
-        xkey: 'year',
+        xkey: 'x',
         // A list of names of data record attributes that contain y-values.
         ykeys: ['value', 'value2'],
         // Labels for the ykeys -- will be displayed when you hover over the
@@ -606,9 +606,9 @@ dbRef.on("value", snap => {
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [
-            { year: '2008', value: sumatpq2, value2: sumatgq2 },
-            { year: '2009', value: sumatph2, value2: sumatgh2 },
-            { year: '2010', value: sumatp2, value2: sumatg2 }
+            { year: '1', value: sumatpq2, value2: sumatgq2 },
+            { year: '2', value: sumatph2, value2: sumatgh2 },
+            { year: '3', value: sumatp2, value2: sumatg2 }
         ],
         // The name of the data record attribute that contains x-values.
         xkey: 'year',
