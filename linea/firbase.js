@@ -51,7 +51,7 @@ var pequeño1 = new Array();
 var pequeño2 = new Array();
 var pequeño3 = new Array();
 var pequeño4 = new Array();
-var suma;
+var suma = 0;
 var Uno = document.getElementById("Hola");
 var dbRef = firebase.database().ref("boleto");
 dbRef.on("value", snap => {
@@ -66,15 +66,18 @@ dbRef.on("value", snap => {
 
         if (data[key].transporteweb == "TR GRANDE") {
             tren1.push(data[key].transporteweb);
-            tota1.push(data[key].total);
+            tota1.push(parseInt(data[key].total));
             fecha1.push(data[key].datel);
             grande1.push(data[key].grande);
             pequeño1.push(data[key].pequeño);
-            var a = parseInt(tota1)
-            suma = suma + a;
+            tota1.forEach(function(element) {
+                suma = suma + element;
+            });
+
+
+
 
             document.getElementById("grande").innerHTML = suma;
-
 
         }
         if (data[key].transporteweb == "TR CHICO") {
