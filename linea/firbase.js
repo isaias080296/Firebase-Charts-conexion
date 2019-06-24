@@ -52,6 +52,10 @@ var pequeño2 = new Array();
 var pequeño3 = new Array();
 var pequeño4 = new Array();
 var suma = 0;
+var suma1 = 0;
+var suma2 = 0;
+var suma3 = 0;
+
 var Uno = document.getElementById("Hola");
 var dbRef = firebase.database().ref("boleto");
 dbRef.on("value", snap => {
@@ -70,14 +74,9 @@ dbRef.on("value", snap => {
             fecha1.push(data[key].datel);
             grande1.push(data[key].grande);
             pequeño1.push(data[key].pequeño);
-            tota1.forEach(function(element) {
-                suma = suma + element;
-            });
 
 
 
-
-            document.getElementById("grande").innerHTML = suma;
 
         }
         if (data[key].transporteweb == "TR CHICO") {
@@ -86,6 +85,8 @@ dbRef.on("value", snap => {
             fecha2.push(data[key].datel);
             grande2.push(data[key].grande);
             pequeño2.push(data[key].pequeño);
+
+
         }
         if (data[key].transporteweb == "TR NEGRO") {
             tren3.push(data[key].transporteweb);
@@ -100,13 +101,11 @@ dbRef.on("value", snap => {
             fecha4.push(data[key].datel);
             grande4.push(data[key].grande);
             pequeño4.push(data[key].pequeño);
+
+
         }
 
 
-        array = [
-            { year: data[key].datel, value: data[key].total }
-
-        ];
 
         low.setData(array);
 
@@ -114,5 +113,25 @@ dbRef.on("value", snap => {
 
         ////
     }
+    tota1.forEach(function(element) {
+        suma = suma + element;
+
+    });
+    document.getElementById("grande").innerHTML = suma;
+
+    tota2.forEach(function(element) {
+        suma1 = suma1 + element;
+
+    });
+
+    tota3.forEach(function(element) {
+        suma2 = suma2 + element;
+
+    });
+
+    tota4.forEach(function(element) {
+        suma3 = suma3 + element;
+
+    });
 
 });
