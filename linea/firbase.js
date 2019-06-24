@@ -305,12 +305,12 @@ dbRef.on("value", snap => {
 
     });
 
-    grandeq1.forEach(function(element) {
+    grandehoy1.forEach(function(element) {
         sumatgh1 = sumatgh1 + element;
 
     });
 
-    pequeñoq1.forEach(function(element) {
+    pequeñohoy1.forEach(function(element) {
         sumatph1 = sumatph1 + element;
 
     });
@@ -337,7 +337,7 @@ dbRef.on("value", snap => {
 
     t1 = sumat1 + sumatq1 + sumath1;
     tp1 = sumatpq1 + sumatph1 + sumatp1;
-    tg2 = sumatgq1 + sumatgh1 + sumatg1;
+    tg1 = sumatgq1 + sumatgh1 + sumatg1;
 
 
 
@@ -366,12 +366,12 @@ dbRef.on("value", snap => {
 
     });
 
-    grandeq2.forEach(function(element) {
+    grandehoy2.forEach(function(element) {
         sumatgh2 = sumatgh2 + element;
 
     });
 
-    pequeñoq2.forEach(function(element) {
+    pequeñohoy2.forEach(function(element) {
         sumatph2 = sumatph2 + element;
 
     });
@@ -424,12 +424,12 @@ dbRef.on("value", snap => {
 
     });
 
-    grandeq3.forEach(function(element) {
+    grandehoy3.forEach(function(element) {
         sumatgh3 = sumatgh3 + element;
 
     });
 
-    pequeñoq3.forEach(function(element) {
+    pequeñohoy3.forEach(function(element) {
         sumatph3 = sumatph3 + element;
 
     });
@@ -482,12 +482,12 @@ dbRef.on("value", snap => {
 
     });
 
-    grandeq4.forEach(function(element) {
+    grandehoy4.forEach(function(element) {
         sumatgh4 = sumatgh4 + element;
 
     });
 
-    pequeñoq4.forEach(function(element) {
+    pequeñohoy4.forEach(function(element) {
         sumatph4 = sumatph4 + element;
 
     });
@@ -549,8 +549,31 @@ dbRef.on("value", snap => {
         }
     });
 
+    //////////
 
-    //////////////Tren Chico
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'vistas',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { year: '2008', value: sumatpq1, value2: sumatgq1 },
+            { year: '2009', value: sumatph1, value2: sumatgh1 },
+            { year: '2010', value: sumatp1, value2: sumatg1 }
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value', 'value2'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Pequeño', 'Grande']
+    });
+
+
+
+
+    /////Tren Chico
 
 
     new Morris.Bar({
@@ -575,6 +598,25 @@ dbRef.on("value", snap => {
                 return '#000';
             }
         }
+    });
+    ////Visistas
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'vistas2',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { year: '2008', value: sumatpq2, value2: sumatgq2 },
+            { year: '2009', value: sumatph2, value2: sumatgh2 },
+            { year: '2010', value: sumatp2, value2: sumatg2 }
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value', 'value2'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Pequeño', 'Grande']
     });
 
     //////// Tren 3 Ventas
@@ -602,8 +644,28 @@ dbRef.on("value", snap => {
         }
     });
 
+    //////////Visitas 3
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'vistas3',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { year: '1', value: sumatpq3, value2: sumatgq3 },
+            { year: '2', value: sumatph3, value2: sumatgh3 },
+            { year: '3', value: sumatp3, value2: sumatg3 }
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value', 'value2'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Pequeño', 'Grande']
+    });
 
     ///////////////Camioneta
+
     new Morris.Bar({
         // ID of the element in which to draw the chart.
         element: 'Camioneta',
@@ -629,7 +691,26 @@ dbRef.on("value", snap => {
     });
 
 
-    //////////
+    //////////Visitas 3
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'vistas4',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { year: '1', value: sumatpq4, value2: sumatgq4 },
+            { year: '2', value: sumatph4, value2: sumatgh4 },
+            { year: '3', value: sumatp4, value2: sumatg4 }
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value', 'value2'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Pequeño', 'Grande']
+    });
+
 
 
 
