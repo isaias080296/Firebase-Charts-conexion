@@ -54,7 +54,42 @@ var pequeño3 = new Array();
 var pequeño4 = new Array();
 var totaldia = new Array();
 var hoy1 = new Array();
-var dia1 = new Array();
+var semana1 = new Array();
+var quince1 = new Array();
+var mes1 = new Array();
+var hoy2 = new Array();
+var quince2 = new Array();
+/////
+var pg = new Array();
+var pequeñohoy1 = new Array();
+var thoy1 = new Array();
+var tq1 = new Array();
+var pequeñoq1 = new Array();
+var grandehoy1 = new Array();
+var grandeq1 = new Array();
+////
+var pequeñohoy2 = new Array();
+var pequeñoq2 = new Array();
+var grandehoy2 = new Array();
+var grandeq2 = new Array();
+/////
+var pequeñohoy3 = new Array();
+var pequeñoq3 = new Array();
+var grandehoy3 = new Array();
+var grandeq3 = new Array();
+/////
+var pequeñohoy4 = new Array();
+var pequeñoq4 = new Array();
+var grandehoy4 = new Array();
+var grandeq4 = new Array();
+////
+var mes2 = new Array();
+var hoy3 = new Array();
+var quince3 = new Array();
+var mes3 = new Array();
+var hoy4 = new Array();
+var quince4 = new Array();
+var mes4 = new Array();
 var suma = 0;
 var suma1 = 0;
 var suma2 = 0;
@@ -76,21 +111,28 @@ dbRef.on("value", snap => {
 
 
 
-            if (fechaacutal.diff(data[key].datel, 'days') <= 15) {
+            if (fechaacutal.diff(data[key].datel, 'days') >= 7 && fechaacutal.diff(data[key].datel, 'days') <= 20) {
+                tren1.push(data[key].transporteweb);
+                tota1.push(parseInt(data[key].total));
+                quince1.push(data[key].datel);
+                grandeq1.push(data[key].grande);
+                pequeñoq1.push(data[key].pequeño);
+            } else if (fechaacutal.diff(data[key].datel, 'days') <= 12) {
+                tren1.push(data[key].transporteweb);
+                tota1.push(parseInt(data[key].total));
+                semana1.push(data[key].datel);
+                grandehoy1.push(data[key].grande);
+                pequeñohoy1.push(data[key].pequeño);
+            } else {
                 tren1.push(data[key].transporteweb);
                 tota1.push(parseInt(data[key].total));
                 fecha1.push(data[key].datel);
                 grande1.push(data[key].grande);
                 pequeño1.push(data[key].pequeño);
+
             }
 
-            if (fechaacutal.diff(data[key].datel, 'days') <= 7 || fechaacutal.diff(data[key].datel, 'days') == "NaN") {
-                tren1.push(data[key].transporteweb);
-                tota1.push(parseInt(data[key].total));
-                fecha1.push(data[key].datel);
-                grande1.push(data[key].grande);
-                pequeño1.push(data[key].pequeño);
-            }
+
 
 
 
