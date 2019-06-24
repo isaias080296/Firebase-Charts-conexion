@@ -31,6 +31,7 @@ var data;
 var s
 var l;
 let respuesta;
+var fechaacutal = moment();
 var tota1 = new Array();
 var tota2 = new Array();
 var tota3 = new Array();
@@ -51,12 +52,15 @@ var pequeño1 = new Array();
 var pequeño2 = new Array();
 var pequeño3 = new Array();
 var pequeño4 = new Array();
+var totaldia = new Array();
+var hoy1 = new Array();
+var dia1 = new Array();
 var suma = 0;
 var suma1 = 0;
 var suma2 = 0;
 var suma3 = 0;
 
-var Uno = document.getElementById("Hola");
+
 var dbRef = firebase.database().ref("boleto");
 dbRef.on("value", snap => {
     data = snap.val();
@@ -106,8 +110,8 @@ dbRef.on("value", snap => {
         }
 
 
-
-        low.setData(array);
+        //
+        //low.setData(array);
 
 
 
@@ -115,6 +119,8 @@ dbRef.on("value", snap => {
     }
     tota1.forEach(function(element) {
         suma = suma + element;
+
+
 
     });
     document.getElementById("grande").innerHTML = suma;
@@ -134,4 +140,28 @@ dbRef.on("value", snap => {
 
     });
 
+
+
+
+
+    //console.log(fechaactual);
+    //console.log(fecha1[15])
+
+    //console.log(moment(fecha).format('MM/DD/YYYY HH:mm:ss'));
+
+    fecha1.forEach(function(element) {
+        dia1.push(fechaacutal.diff(element, 'days'));
+
+    });
+
+
 });
+
+
+
+
+//var fechaacutal = moment();
+
+//////Datos
+
+//});
