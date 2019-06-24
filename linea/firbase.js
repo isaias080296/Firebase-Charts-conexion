@@ -11,21 +11,7 @@ firebase.initializeApp({
 
 // Initialize Firebase
 ////Graficación
-var low = new Morris.Line({
-    // ID of the element in which to draw the chart.
-    element: 'myfirstchart',
 
-
-    // The name of the data record attribute that contains x-values.
-    xkey: 'year',
-    // A list of names of data record attributes that contain y-values.
-    ykeys: ['value'],
-    // Labels for the ykeys -- will be displayed when you hover over the
-    // chart.
-    labels: ['total']
-
-
-});
 
 var data;
 var s
@@ -539,16 +525,116 @@ dbRef.on("value", snap => {
 
     //console.log(moment(fecha).format('MM/DD/YYYY HH:mm:ss'));
 
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'myfirstchart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { x: '+ Quince Días', y: sumatq1 },
+            { x: '- Quince Días', y: sumath1 },
+            { x: 'Semana', y: sumat1 },
+
+        ],
+        xkey: 'x',
+        ykeys: ['y'],
+        labels: ['Ventas'],
+        barColors: function(row, series, type) {
+            if (type === 'bar') {
+                var red = Math.ceil(255 * row.y / this.ymax);
+                return 'rgb(' + red + ',0,0)';
+            } else {
+                return '#000';
+            }
+        }
+    });
+
+
+    //////////////Tren Chico
+
+
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'Trenchico',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { x: '+ Quince Días', y: sumatq2 },
+            { x: '- Quince Días', y: sumath2 },
+            { x: 'Semana', y: sumat2 },
+
+        ],
+        xkey: 'x',
+        ykeys: ['y'],
+        labels: ['Ventas'],
+        barColors: function(row, series, type) {
+            if (type === 'bar') {
+                var red = Math.ceil(255 * row.y / this.ymax);
+                return 'rgb(' + red + ',0,0)';
+            } else {
+                return '#000';
+            }
+        }
+    });
+
+    //////// Tren 3 Ventas
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'TrenNegro',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { x: '+ Quince Días', y: sumatq3 },
+            { x: '- Quince Días', y: sumath3 },
+            { x: 'Semana', y: sumat3 },
+
+        ],
+        xkey: 'x',
+        ykeys: ['y'],
+        labels: ['Ventas'],
+        barColors: function(row, series, type) {
+            if (type === 'bar') {
+                var red = Math.ceil(255 * row.y / this.ymax);
+                return 'rgb(' + red + ',0,0)';
+            } else {
+                return '#000';
+            }
+        }
+    });
+
+
+    ///////////////Camioneta
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'Camioneta',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+            { x: '+ Quince Días', y: sumatq4 },
+            { x: '- Quince Días', y: sumath4 },
+            { x: 'Semana', y: sumat4 },
+
+        ],
+        xkey: 'x',
+        ykeys: ['y'],
+        labels: ['Ventas'],
+        barColors: function(row, series, type) {
+            if (type === 'bar') {
+                var red = Math.ceil(255 * row.y / this.ymax);
+                return 'rgb(' + red + ',0,0)';
+            } else {
+                return '#000';
+            }
+        }
+    });
+
+
+    //////////
+
+
 
 
 
 });
 
-
-
-
-//var fechaacutal = moment();
-
-//////Datos
-
-//});
+///////////////GRAFICA TREN CHICO
